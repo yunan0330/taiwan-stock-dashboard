@@ -144,6 +144,24 @@ fig.update_layout(
 )
 
 st.plotly_chart(fig, use_container_width=True)
+# Volume Chart
+st.subheader("Trading Volume")
+
+volume_fig = go.Figure()
+
+volume_fig.add_trace(go.Bar(
+    x=df.index,
+    y=df["Volume"],
+    name="Volume"
+))
+
+volume_fig.update_layout(
+    template="plotly_dark",
+    height=300,
+    title="Daily Trading Volume"
+)
+
+st.plotly_chart(volume_fig, use_container_width=True)
 # RSI Chart
 st.subheader("RSI Indicator")
 
