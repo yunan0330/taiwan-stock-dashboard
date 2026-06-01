@@ -98,6 +98,17 @@ else:
     """
 
 st.info(insight)
+# RSI Signal
+latest_rsi = round(df["RSI"].iloc[-1], 2)
+
+if latest_rsi > 70:
+    st.warning(f"RSI: {latest_rsi} → Overbought Condition")
+
+elif latest_rsi < 30:
+    st.success(f"RSI: {latest_rsi} → Oversold Condition")
+
+else:
+    st.info(f"RSI: {latest_rsi} → Neutral Momentum")
 st.divider()
 
 # 圖表
@@ -143,7 +154,8 @@ fig.update_layout(
     xaxis_title="Date",
     yaxis_title="Price",
     template="plotly_dark",
-    height=600
+    height=700,
+    xaxis_rangeslider_visible=False
 )
 
 st.plotly_chart(fig, use_container_width=True)
