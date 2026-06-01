@@ -10,7 +10,9 @@ st.title("Taiwan Stock Market Dashboard")
 stock_id = st.text_input("Enter Stock ID", "2330.TW")
 
 df = yf.download(stock_id, period="6mo")
-
+if df.empty:
+    st.error("No data found. Please check the stock ID, for example: 2330.TW")
+    st.stop()
 # 修正多層欄位
 if isinstance(df.columns, pd.MultiIndex):
     df.columns = df.columns.get_level_values(0)
