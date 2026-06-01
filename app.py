@@ -6,6 +6,15 @@ import plotly.graph_objects as go
 st.set_page_config(page_title="Taiwan Stock Dashboard", layout="wide")
 
 st.title("Taiwan Stock Market Dashboard")
+st.markdown("""
+### Real-Time Financial Analytics Platform
+
+This dashboard provides:
+- Real-time stock price analysis
+- Technical indicators (MA & RSI)
+- AI-generated market insights
+- Trading volume analytics
+""")
 
 stock_id = st.text_input("Enter Stock ID", "2330.TW")
 
