@@ -104,11 +104,14 @@ st.divider()
 fig = go.Figure()
 
 # 收盤價
-fig.add_trace(go.Scatter(
+# Candlestick Chart
+fig.add_trace(go.Candlestick(
     x=df.index,
-    y=df["Close"],
-    mode='lines',
-    name='Close Price'
+    open=df["Open"],
+    high=df["High"],
+    low=df["Low"],
+    close=df["Close"],
+    name="Candlestick"
 ))
 
 # MA5
