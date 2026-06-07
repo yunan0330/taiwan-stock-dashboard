@@ -112,6 +112,7 @@ Price is currently below MA20. Investors should monitor market conditions carefu
 
 st.info(insight)
 
+
 # RSI Signal
 rsi_series = df["RSI"].dropna()
 
@@ -127,6 +128,16 @@ if not rsi_series.empty:
 else:
     st.warning("RSI is not available because there is not enough data.")
 
+st.subheader("Investment Signal")
+
+if latest_close> latest_ma20 and latest_rsi < 70:
+    st.success("BUY CANDIDATE")
+
+elif latest_rsi > 70:
+    st.warning("POTENTIAL OVERBOUGHT")
+
+else:
+    st.info("HOLD / WATCH")
 st.divider()
 
 # Main Price Chart
