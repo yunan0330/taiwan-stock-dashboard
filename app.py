@@ -17,7 +17,7 @@ This dashboard provides:
 - Trading volume analytics
 """)
 
-stock_id = st.text_input("Enter Stock ID", "2330.TW")
+stock_id = st.text_input("Enter Stock ID", "AAPL")
 
 df = yf.download(stock_id, period="6mo", progress=False)
 
